@@ -35,6 +35,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
           transition={{ duration: 3 }}
           className="w-auto h-auto py-2 px-10 font-medium border border-black rounded-lg"
         >
@@ -51,7 +52,7 @@ const Hero = () => {
               key={index}
               initial="hidden"
               whileInView="visible"
-              viewport={{ once: false, amount: 0.5 }}
+              viewport={{ once: true, amount: 0.5 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
               variants={letterAnimation}
             >
@@ -69,6 +70,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 3 }}
+          viewport={{ once: true }}
           className="w-auto h-auto py-4 px-12 font-medium border border-black rounded-lg"
         >
           <h1 className="uppercase text-lg benzin-semi">REQEST A WEBSITE</h1>
