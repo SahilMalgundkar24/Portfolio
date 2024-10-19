@@ -3,9 +3,9 @@ import React from "react";
 const ProjectSection = () => {
   return (
     <>
-      <div className="w-full h-screen p-16 flex">
+      <div className="w-full bg-black h-screen p-16 flex">
         <div className="w-[40%]">
-          <h1 className="text-6xl text-white mb-3">MY PROJECTS</h1>
+          <h1 className="text-6xl mb-3">MY PROJECTS</h1>
           <p className="text-sm text-white">
             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum error
             natus, tempora, quibusdam praesentium voluptatem dignissimos
