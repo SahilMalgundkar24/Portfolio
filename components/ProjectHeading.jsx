@@ -1,41 +1,36 @@
+"use client";
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
-import ProjectSection from "./ProjectSection";
-import ImageGallery from "./ImageGallery";
-import Contact from "./Contact";
-import Footer from "./Footer";
 
 const ProjectHeading = () => {
   const containerRef = useRef(null);
-  const [isZoomed, setIsZoomed] = useState(false);
-  const [showContent, setShowContent] = useState(false);
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
 
-  const scale = useTransform(scrollYProgress, [0, 0.5], [1, 30]);
-  const opacity = useTransform(scrollYProgress, [0.5, 0.7], [1, 0]);
-  const contentOpacity = useTransform(scrollYProgress, [0.7, 1], [0, 1]);
+  // Transform for text scale and opacity
+  const scale = useTransform(scrollYProgress, [0, 0.4], [1, 15]);
+  const opacity = useTransform(scrollYProgress, [0.4, 0.6], [1, 0]);
+  const contentOpacity = useTransform(scrollYProgress, [0.6, 0.8], [0, 1]);
 
-  const smoothScale = useSpring(scale, { stiffness: 100, damping: 30 });
+  // Smooth scaling
+  const smoothScale = useSpring(scale, { stiffness: 80, damping: 30 });
 
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.onChange((latest) => {
-      if (latest > 0.5 && !isZoomed) {
-        setIsZoomed(true);
-      }
-      if (latest > 0.7 && !showContent) {
-        setShowContent(true);
-      }
-    });
-
-    return () => unsubscribe();
-  }, [scrollYProgress, isZoomed, showContent]);
+  // Background color transition
+  const backgroundColor = useTransform(
+    scrollYProgress,
+    [0.4, 0.7],
+    ["#e0dfdb", "#000000"]
+  );
 
   return (
-    <div ref={containerRef} className="relative h-[300vh]">
+    <motion.div
+      ref={containerRef}
+      className="relative h-[300vh]"
+      style={{ backgroundColor }}
+    >
       <motion.div
         className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden"
         style={{ opacity }}
@@ -49,15 +44,15 @@ const ProjectHeading = () => {
         </motion.h1>
       </motion.div>
 
-      {showContent && (
-        <motion.div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center">
-          <ProjectSection />
-          <ImageGallery />
-          <Contact />
-          <Footer />
+      {scrollYProgress.current > 0.7 && (
+        <motion.div
+          className="sticky top-0 h-screen w-full flex flex-col items-center justify-center"
+          style={{ opacity: contentOpacity }}
+        >
+          {/* Additional content */}
         </motion.div>
       )}
-    </div>
+    </motion.div>
   );
 };
 

@@ -73,7 +73,7 @@ const Hero = () => {
           viewport={{ once: true }}
           className="w-auto h-auto py-4 px-12 font-medium border border-black rounded-lg"
         >
-          <h1 className="uppercase text-lg benzin-semi">REQEST A WEBSITE</h1>
+          <h1 className="uppercase text-lg benzin-semi">REQUEST A WEBSITE</h1>
         </motion.div>
       </div>
 

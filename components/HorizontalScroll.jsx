@@ -1,3 +1,4 @@
+"use client";
 import React, { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -40,14 +41,14 @@ const HorizontalScroll = () => {
           <div className="relative">
             <h1
               ref={textRef}
-              className="text-9xl font-bold whitespace-nowrap pl-16"
+              className="text-8xl font-bold whitespace-nowrap pl-16"
             >
               I craft{" "}
               <span className="relative">
                 interactive
                 <img
                   src="/api/placeholder/150/150"
-                  alt="Interactive"
+                  alt="Interasasactive"
                   className="absolute -top-40 left-0 rounded-full shadow-lg"
                 />
               </span>
