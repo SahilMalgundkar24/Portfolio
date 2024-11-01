@@ -5,8 +5,10 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const Hero = () => {
-  const word1 = "Design. Develop.";
-  const word3 = "Deliver. Impact.";
+  const word1 = "Design.";
+  const word2 = "Develop.";
+  const word3 = "Deliver.";
+  const word4 = "Impact.";
 
   const letterAnimation = {
     hidden: { opacity: 0, y: -30 },
@@ -14,9 +16,23 @@ const Hero = () => {
   };
   return (
     <div className="py-10 w-full h-auto px-16 relative">
-      <div className="py-3">
+      <div className="py-3 flex justify-center gap-3">
         <motion.h1 className="my-1 benzin-semi justify-center text-8xl flex">
           {word1.split("").map((letter, index) => (
+            <motion.span
+              key={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+              variants={letterAnimation}
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </motion.span>
+          ))}
+        </motion.h1>
+        <motion.h1 className="my-1 benzin-semi justify-center text-8xl flex">
+          {word2.split("").map((letter, index) => (
             <motion.span
               key={index}
               initial="hidden"
@@ -45,9 +61,23 @@ const Hero = () => {
           </h1>
         </motion.div>
       </div>
-      <div className="py-3">
+      <div className="py-3 flex justify-center gap-3">
         <motion.h1 className="justify-center benzin-semi text-8xl flex">
           {word3.split("").map((letter, index) => (
+            <motion.span
+              key={index}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+              variants={letterAnimation}
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </motion.span>
+          ))}
+        </motion.h1>
+        <motion.h1 className="my-1 benzin-semi justify-center text-8xl flex">
+          {word4.split("").map((letter, index) => (
             <motion.span
               key={index}
               initial="hidden"

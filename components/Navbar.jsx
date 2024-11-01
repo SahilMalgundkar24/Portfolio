@@ -10,6 +10,17 @@ const Navbar = () => {
     setIsModalOpen(!isModalOpen);
   };
 
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      setIsModalOpen(false);
+      element.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
   const sideModalVariants = {
     hidden: {
       x: "100%",
@@ -26,6 +37,13 @@ const Navbar = () => {
       },
     },
   };
+
+  const navItems = [
+    { title: "Home", id: "home" },
+    { title: "About", id: "about" },
+    { title: "Skills", id: "skills" },
+    { title: "Projects", id: "projects" },
+  ];
 
   return (
     <>
@@ -93,20 +111,19 @@ const Navbar = () => {
                   }}
                   className="space-y-10"
                 >
-                  {["Home", "About", "Projects", "Contact"].map(
-                    (item, index) => (
-                      <motion.li
-                        key={item}
-                        variants={{
-                          hidden: { opacity: 0, x: -50 },
-                          visible: { opacity: 1, x: 0 },
-                        }}
-                        className="text-5xl hover:text-gray-300 cursor-pointer"
-                      >
-                        {item}
-                      </motion.li>
-                    )
-                  )}
+                  {navItems.map((item) => (
+                    <motion.li
+                      key={item.id}
+                      variants={{
+                        hidden: { opacity: 0, x: -50 },
+                        visible: { opacity: 1, x: 0 },
+                      }}
+                      className="text-5xl hover:text-gray-300 cursor-pointer"
+                      onClick={() => scrollToSection(item.id)}
+                    >
+                      {item.title}
+                    </motion.li>
+                  ))}
                 </motion.ul>
               </div>
             </div>

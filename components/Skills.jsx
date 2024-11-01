@@ -69,7 +69,7 @@ const Skills = () => {
   ];
 
   return (
-    <div className="p-16">
+    <div id="skills" className="p-16">
       <div className="flex justify-between items-center my-16">
         <div className="w-full mr-12">
           <div className="bg-black opacity-[30%] w-full h-[1px]"></div>

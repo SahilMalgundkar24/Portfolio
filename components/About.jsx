@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const About = () => {
   return (
     <>
-      <div className="px-16 py-16 w-full gap-40">
+      <div id="about" className="px-16 py-16 w-full gap-40">
         <div className="flex justify-between items-center my-16">
           <h1 className="text-6xl w-auto">ABOUT</h1>
           <div className="w-full ml-12">
@@ -34,20 +34,22 @@ const About = () => {
             viewport={{ once: false }}
             className="ml-12"
           >
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ullam
-            corporis ipsam fugiat dolorum reiciendis explicabo voluptatum
-            consequuntur fuga quam facilis ipsa velit rerum qui quaerat
-            laboriosam, hic, laborum eveniet numquam porro. Cupiditate in quidem
-            quibusdam, similique accusamus minima cum dolor<br></br>
+            I'm Sahil Malgundkar, a Computer Engineering student passionate
+            about blending creativity with technical expertise to build
+            impactful digital solutions. From building interactive interfaces to
+            developing robust applications, I emphasize user-centered design and
+            functionality to create seamless digital experiences.<br></br>
             <br></br>
-            tempore dolorem. Necessitatibus, ipsum voluptates impedit
-            reprehenderit nemo nihil aliquid perferendis facilis saepe incidunt
-            velit sed accusantium minima eligendi magni laborum vitae asperiores
-            unde libero hic repellendus sit praesentium commodi. <br></br>
-            <br></br>Ipsum corporis corrupti, totam minima nemo quod eveniet
-            laborum suscipit officia tenetur possimus rem architecto blanditiis!
-            Quo molestias vel ducimus explicabo illum, magni a necessitatibus
-            ipsum numquam.
+            In addition to my technical pursuits, I hold the position of
+            Marketing Secretary at the Computer Engineering Students’ Society,
+            where I've honed my leadership and collaboration skills. This role
+            has allowed me to connect with industry professionals, organize tech
+            events, and create valuable opportunities for my peers. <br></br>
+            <br></br>I constantly seek new challenges and learning
+            opportunities, integrating emerging technologies like blockchain and
+            machine learning into my projects. My goal is to innovate and drive
+            positive change, using technology to solve real-world problems and
+            make a meaningful impact in the tech community.
           </motion.div>
         </div>
       </div>

@@ -47,36 +47,36 @@ const HorizontalScroll = () => {
               <span className="relative">
                 interactive
                 <img
-                  src="/api/placeholder/150/150"
+                  src="./images/interactive.png"
                   alt="Interasasactive"
-                  className="absolute -top-40 left-0 rounded-full shadow-lg"
+                  className="absolute -top-64 left-0 rounded-full w-72"
                 />
               </span>
               , visually{" "}
               <span className="relative">
                 appealing
                 <img
-                  src="/api/placeholder/200/150"
+                  src="./images/visual.png"
                   alt="Appealing"
-                  className="absolute -bottom-40 left-0 rounded-lg shadow-lg"
+                  className="absolute -bottom-60 left-0 rounded-lg w-80"
                 />
               </span>{" "}
               web applications,
               <span className="relative">
                 blending
                 <img
-                  src="/api/placeholder/180/180"
+                  src="./images/blend.png"
                   alt="Blending"
-                  className="absolute -top-48 left-0 rounded-lg shadow-lg"
+                  className="absolute -top-60 left-0 rounded-lg w-72"
                 />
               </span>{" "}
               creativity with code to deliver{" "}
               <span className="relative">
                 seamless
                 <img
-                  src="/api/placeholder/220/140"
+                  src="./images/seamless.png"
                   alt="Seamless"
-                  className="absolute -bottom-36 left-0 rounded-lg shadow-lg"
+                  className="absolute -bottom-52 left-0 rounded-lg w-80"
                 />
               </span>{" "}
               digital experiences
