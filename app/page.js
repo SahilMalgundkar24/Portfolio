@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
@@ -13,13 +13,18 @@ import ProjectHeading from "@/components/ProjectHeading";
 import Lenis from "@studio-freight/lenis";
 
 export default function Home() {
-  const lenis = new Lenis();
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const lenis = new Lenis();
 
-  function raf(time) {
-    lenis.raf(time);
-    requestAnimationFrame(raf);
-  }
-  requestAnimationFrame(raf);
+      function raf(time) {
+        lenis.raf(time);
+        requestAnimationFrame(raf);
+      }
+
+      requestAnimationFrame(raf);
+    }
+  }, []);
 
   return (
     <>

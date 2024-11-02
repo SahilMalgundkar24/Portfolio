@@ -17,7 +17,6 @@ const ImageGallery = () => {
     useTransform(scrollYProgress, [0, 1], ["0%", "10%"]),
   ];
 
-  // Array of image paths with variable heights and aspect ratios
   const images = [
     { src: "/images/imagegallery1.png", height: "h-[400px]" },
     { src: "/images/imagegallery5.png", height: "h-[500px]" },
@@ -38,10 +37,12 @@ const ImageGallery = () => {
   ];
 
   return (
-    <div className="bg-black">
-      <div className="px-16 py-7">
-        <h1 className="text-6xl text-white">Creative Showcase</h1>
-        <p className="text-lg w-1/2 mt-3 text-white">
+    <div className=" hidden lg:block bg-black">
+      <div className="px-5 md:px-10 lg:px-16 py-7">
+        <h1 className="text-3xl md:text-4xl lg:text-6xl text-white">
+          Creative Showcase
+        </h1>
+        <p className="text-xs lg:text-lg w-full lg:w-1/2 mt-3 text-white">
           Explore a collection of my recent UI designs and web projects. Each
           image captures the creativity, functionality, and user-focused
           approach I bring to every project.

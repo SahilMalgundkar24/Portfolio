@@ -30,7 +30,7 @@ const ProjectHeading = () => {
     >
       <motion.div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
         <motion.h1
-          className="text-9xl font-bold text-center"
+          className="text-3xl md:text-7xl lg:text-9xl font-bold text-center"
           style={{
             scale,
           }}

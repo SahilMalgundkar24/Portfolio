@@ -47,16 +47,16 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="w-full h-auto px-16 py-5 flex justify-between items-center">
+      <nav className="w-full h-auto px-5 md:px-10 lg:px-16 py-5 flex justify-between items-center">
         <div>
           <h1 className="text-2xl">SM</h1>
         </div>
-        <div className="flex gap-10 items-center">
+        <div className="flex gap-3 md:gap-10 items-center">
           <div>
             <motion.button
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.8 }}
-              className="py-2 font-light px-7 rounded-full border border-black"
+              className="py-2 font-light px-5 md:px-7 rounded-full border border-black"
             >
               <h1 className="text-sm">Contact</h1>
             </motion.button>
@@ -82,7 +82,7 @@ const Navbar = () => {
             animate="visible"
             exit="hidden"
             variants={sideModalVariants}
-            className="fixed top-0 right-0 w-2/5 h-full bg-black z-50"
+            className="fixed top-0 right-0 w-4/5 md:w-1/2 lg:w-2/5 h-full bg-black z-50"
           >
             <div className="relative w-full h-full">
               <motion.div
@@ -95,7 +95,7 @@ const Navbar = () => {
               </motion.div>
 
               {/* Modal Content */}
-              <div className="text-white p-16 flex flex-col items-start justify-center h-full">
+              <div className="text-white p-10 md:p-16 flex flex-col items-start justify-center h-full">
                 <motion.ul
                   initial="hidden"
                   animate="visible"
@@ -118,7 +118,7 @@ const Navbar = () => {
                         hidden: { opacity: 0, x: -50 },
                         visible: { opacity: 1, x: 0 },
                       }}
-                      className="text-5xl hover:text-gray-300 cursor-pointer"
+                      className="text-3xl md:text-5xl hover:text-gray-300 cursor-pointer"
                       onClick={() => scrollToSection(item.id)}
                     >
                       {item.title}

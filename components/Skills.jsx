@@ -1,3 +1,4 @@
+"use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
@@ -7,8 +8,8 @@ const SkillCard = ({ number, title, subtitle, isFullWidth = false }) => {
   return (
     <motion.div
       className={`${
-        isFullWidth ? "w-full" : "w-[31%]"
-      } h-auto px-7 py-5 border border-[#BEBEBE] rounded-3xl overflow-hidden relative`}
+        isFullWidth ? "w-full" : "w-full lg:w-[31%]"
+      } h-auto px-7 py-5 border border-[#BEBEBE] rounded-3xl overflow-hidden relative mb-4 lg:mb-0`}
       onHoverStart={() => setIsHovered(true)}
       onHoverEnd={() => setIsHovered(false)}
     >
@@ -69,15 +70,15 @@ const Skills = () => {
   ];
 
   return (
-    <div id="skills" className="p-16">
-      <div className="flex justify-between items-center my-16">
-        <div className="w-full mr-12">
+    <div id="skills" className="cursor-default p-5 lg:p-16">
+      <div className="flex justify-between items-center my-4 lg:my-16">
+        <div className="w-full mr-5 lg:mr-12">
           <div className="bg-black opacity-[30%] w-full h-[1px]"></div>
         </div>
-        <h1 className="text-6xl w-auto">SKILLS</h1>
+        <h1 className="text-3xl md:text-4xl lg:text-6xl w-auto">SKILLS</h1>
       </div>
 
-      <div className="w-full flex justify-between mb-7">
+      <div className="w-full flex flex-col lg:flex-row lg:justify-between mb-1 lg:mb-7">
         {skillsData.map((skill, index) => (
           <SkillCard
             key={index}

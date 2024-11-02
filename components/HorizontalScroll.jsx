@@ -41,7 +41,7 @@ const HorizontalScroll = () => {
           <div className="relative">
             <h1
               ref={textRef}
-              className="text-8xl font-bold whitespace-nowrap pl-16"
+              className="text-4xl lg:text-8xl font-bold whitespace-nowrap pl-16"
             >
               I craft{" "}
               <span className="relative">
@@ -49,7 +49,7 @@ const HorizontalScroll = () => {
                 <img
                   src="./images/interactive.png"
                   alt="Interasasactive"
-                  className="absolute -top-64 left-0 rounded-full w-72"
+                  className="absolute -top-56 lg:-top-64 left-0 rounded-full w-72"
                 />
               </span>
               , visually{" "}
@@ -58,7 +58,7 @@ const HorizontalScroll = () => {
                 <img
                   src="./images/visual.png"
                   alt="Appealing"
-                  className="absolute -bottom-60 left-0 rounded-lg w-80"
+                  className="absolute -bottom-40 lg:-bottom-60 left-0 rounded-lg w-80"
                 />
               </span>{" "}
               web applications,
@@ -67,7 +67,7 @@ const HorizontalScroll = () => {
                 <img
                   src="./images/blend.png"
                   alt="Blending"
-                  className="absolute -top-60 left-0 rounded-lg w-72"
+                  className="absolute -top-44 lg:-top-60 left-0 rounded-lg w-72"
                 />
               </span>{" "}
               creativity with code to deliver{" "}
@@ -76,7 +76,7 @@ const HorizontalScroll = () => {
                 <img
                   src="./images/seamless.png"
                   alt="Seamless"
-                  className="absolute -bottom-52 left-0 rounded-lg w-80"
+                  className="absolute -bottom-36 lg:-bottom-52 left-0 rounded-lg w-80"
                 />
               </span>{" "}
               digital experiences
