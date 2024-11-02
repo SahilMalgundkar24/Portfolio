@@ -78,7 +78,7 @@ const Skills = () => {
         <h1 className="text-3xl md:text-4xl lg:text-6xl w-auto">SKILLS</h1>
       </div>
 
-      <div className="w-full flex flex-col lg:flex-row lg:justify-between mb-1 lg:mb-7">
+      <div className="w-full flex flex-col lg:flex-row lg:justify-between lg:mb-7">
         {skillsData.map((skill, index) => (
           <SkillCard
             key={index}
