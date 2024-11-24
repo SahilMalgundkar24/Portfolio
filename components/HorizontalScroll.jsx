@@ -34,6 +34,62 @@ const HorizontalScroll = () => {
     ["0%", `${-stopPercentage * 100}%`, `${-stopPercentage * 100}%`]
   );
 
+  // Animation variants for text reveal
+  const textVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+      },
+    },
+  };
+
+  // Animation variants for images
+  const imageVariants = {
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+      rotate: -5,
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      rotate: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+        delay: 0.2,
+      },
+    },
+  };
+
+  const AnimatedWord = ({ children, isSingleLetter = false }) => (
+    <motion.span
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-50px" }}
+      variants={textVariants}
+      className={`inline-block ${isSingleLetter ? "mx-3 font-bold" : "mr-10"}`}
+    >
+      {children}
+    </motion.span>
+  );
+
+  const AnimatedImage = ({ src, alt, className }) => (
+    <motion.img
+      src={src}
+      alt={alt}
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={imageVariants}
+    />
+  );
+
   return (
     <section ref={containerRef} className="relative h-[300vh]">
       <div className="sticky top-0 h-screen overflow-hidden flex items-center">
@@ -43,43 +99,50 @@ const HorizontalScroll = () => {
               ref={textRef}
               className="text-4xl lg:text-8xl font-bold whitespace-nowrap pl-16"
             >
-              I craft{" "}
-              <span className="relative">
-                interactive
-                <img
+              <AnimatedWord isSingleLetter={true}>I</AnimatedWord>
+              <AnimatedWord>craft</AnimatedWord>
+              <span className="relative inline-block">
+                <AnimatedWord>interactive</AnimatedWord>
+                <AnimatedImage
                   src="./images/interactive.png"
-                  alt="Interasasactive"
+                  alt="Interactive"
                   className="absolute -top-56 lg:-top-64 left-0 rounded-full w-72"
                 />
               </span>
-              , visually{" "}
-              <span className="relative">
-                appealing
-                <img
+              <AnimatedWord>visually</AnimatedWord>
+              <span className="relative inline-block">
+                <AnimatedWord>appealing</AnimatedWord>
+                <AnimatedImage
                   src="./images/visual.png"
                   alt="Appealing"
                   className="absolute -bottom-40 lg:-bottom-60 left-0 rounded-lg w-80"
                 />
-              </span>{" "}
-              web applications,
-              <span className="relative">
-                blending
-                <img
+              </span>
+              <AnimatedWord>web</AnimatedWord>
+              <AnimatedWord>applications,</AnimatedWord>
+              <span className="relative inline-block">
+                <AnimatedWord>blending</AnimatedWord>
+                <AnimatedImage
                   src="./images/blend.png"
                   alt="Blending"
                   className="absolute -top-44 lg:-top-60 left-0 rounded-lg w-72"
                 />
-              </span>{" "}
-              creativity with code to deliver{" "}
-              <span className="relative">
-                seamless
-                <img
+              </span>
+              <AnimatedWord>creativity </AnimatedWord>
+              <AnimatedWord>with </AnimatedWord>
+              <AnimatedWord>code </AnimatedWord>
+              <AnimatedWord>to </AnimatedWord>
+              <AnimatedWord>deliver </AnimatedWord>
+              <span className="relative inline-block">
+                <AnimatedWord>seamless</AnimatedWord>
+                <AnimatedImage
                   src="./images/seamless.png"
                   alt="Seamless"
                   className="absolute -bottom-36 lg:-bottom-52 left-0 rounded-lg w-80"
                 />
-              </span>{" "}
-              digital experiences
+              </span>
+              <AnimatedWord>digital</AnimatedWord>
+              <AnimatedWord>experiences</AnimatedWord>
             </h1>
           </div>
         </motion.div>
