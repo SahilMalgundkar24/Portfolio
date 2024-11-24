@@ -72,7 +72,9 @@ const HorizontalScroll = () => {
       whileInView="visible"
       viewport={{ once: true, margin: "-50px" }}
       variants={textVariants}
-      className={`inline-block ${isSingleLetter ? "mx-3 font-bold" : "mr-10"}`}
+      className={`inline-block ${
+        isSingleLetter ? "mx-3 font-bold" : "mr-3 md:mr-7 lg:mr-10"
+      }`}
     >
       {children}
     </motion.span>
@@ -85,7 +87,7 @@ const HorizontalScroll = () => {
       className={className}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      viewport={{ once: true, margin: "-50px" }}
       variants={imageVariants}
     />
   );
