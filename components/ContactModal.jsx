@@ -4,6 +4,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import Toast from "./Toast";
 
+// Add your Google Apps Script Web App URL here
+const GOOGLE_SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
+
 const ContactModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
     name: "",
@@ -11,14 +14,12 @@ const ContactModal = ({ isOpen, onClose }) => {
     message: "",
   });
   const [showToast, setShowToast] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  // Prevent body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
-      // Store the current scroll position
       const scrollY = window.scrollY;
 
-      // Prevent scrolling on body and html
       document.body.style.overflow = "hidden";
       document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;
@@ -76,18 +77,29 @@ const ContactModal = ({ isOpen, onClose }) => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log("Form submitted:", formData);
-    onClose();
-    setFormData({ name: "", email: "", message: "" });
-    setShowToast(true);
-
-    // Auto-hide toast after 3 seconds
-    setTimeout(() => {
-      setShowToast(false);
-    }, 3000);
+    setLoading(true);
+    try {
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        mode: "no-cors", // Required for public Google Apps Script
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      onClose();
+      setFormData({ name: "", email: "", message: "" });
+      setShowToast(true);
+      setTimeout(() => {
+        setShowToast(false);
+      }, 3000);
+    } catch (error) {
+      alert("There was an error sending your message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const modalVariants = {
@@ -236,11 +248,12 @@ const ContactModal = ({ isOpen, onClose }) => {
                   >
                     <motion.button
                       type="submit"
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="w-full py-3 px-6 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200"
+                      whileHover={!loading ? { scale: 1.05 } : {}}
+                      whileTap={!loading ? { scale: 0.95 } : {}}
+                      className="w-full py-3 px-6 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
+                      disabled={loading}
                     >
-                      Send Message
+                      {loading ? "Sending..." : "Send Message"}
                     </motion.button>
                   </motion.div>
                 </motion.form>

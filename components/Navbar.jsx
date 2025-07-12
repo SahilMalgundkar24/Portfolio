@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X, Instagram, Linkedin, Github } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import ContactModal from "./ContactModal";
@@ -7,6 +7,32 @@ import ContactModal from "./ContactModal";
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+
+  // Robust scroll lock for navbar link modal only
+  useEffect(() => {
+    if (isModalOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = "100%";
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      if (scrollY) {
+        window.scrollTo(0, parseInt(scrollY || "0") * -1);
+      }
+    }
+    return () => {
+      document.body.style.overflow = "";
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+    };
+  }, [isModalOpen]);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -51,7 +77,7 @@ const Navbar = () => {
     <>
       <nav className="w-full h-auto px-5 md:px-10 lg:px-16 py-5 flex justify-between items-center">
         <div>
-          <h1 className="text-2xl">Sahil Malgundkar</h1>
+          <h1 className="text-xl">Sahil Malgundkar</h1>
         </div>
         <div className="flex gap-3 md:gap-10 items-center">
           {/* Contact Button */}
@@ -129,7 +155,7 @@ const Navbar = () => {
                     </motion.li>
                   ))}
                 </motion.ul>
-                {/* Animated Social Icons below nav links */}
+
                 <motion.div
                   initial="hidden"
                   animate="visible"
@@ -142,7 +168,7 @@ const Navbar = () => {
                       },
                     },
                   }}
-                  className="flex gap-6 mt-12 justify-start items-center"
+                  className="flex gap-6 mt-12 justify-start items-center flex-wrap"
                 >
                   <motion.a
                     href="https://www.instagram.com/sahil_malgundkar_/"
@@ -179,6 +205,21 @@ const Navbar = () => {
                     }}
                   >
                     <Github className="w-7 h-7 hover:text-gray-300 transition-colors" />
+                  </motion.a>
+                  {/* Animated Resume Button */}
+                  <motion.a
+                    href="/resume.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variants={{
+                      hidden: { opacity: 0, x: 40 },
+                      visible: { opacity: 1, x: 0 },
+                    }}
+                    whileHover={{ scale: 1.08 }}
+                    whileTap={{ scale: 0.96 }}
+                    className="inline-block px-6 py-2 border border-white text-white rounded-full hover:bg-white hover:text-black transition-colors duration-200 ml-2 mt-2"
+                  >
+                    View Resume
                   </motion.a>
                 </motion.div>
               </div>
