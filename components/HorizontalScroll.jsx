@@ -93,7 +93,7 @@ const HorizontalScroll = () => {
   );
 
   return (
-    <section ref={containerRef} className="relative h-[300vh]">
+    <section ref={containerRef} className="relative h-[300vh] hidden md:block">
       <div className="sticky top-0 h-screen overflow-hidden flex items-center">
         <motion.div style={{ x }} className="flex flex-nowrap">
           <div className="relative">
