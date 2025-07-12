@@ -1,10 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Instagram, Linkedin, Github } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import ContactModal from "./ContactModal";
 
 const Navbar = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const toggleModal = () => {
     setIsModalOpen(!isModalOpen);
@@ -49,20 +51,22 @@ const Navbar = () => {
     <>
       <nav className="w-full h-auto px-5 md:px-10 lg:px-16 py-5 flex justify-between items-center">
         <div>
-          <h1 className="text-2xl">SM</h1>
+          <h1 className="text-2xl">Sahil Malgundkar</h1>
         </div>
         <div className="flex gap-3 md:gap-10 items-center">
+          {/* Contact Button */}
           <div>
             <motion.button
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.8 }}
+              onClick={() => setIsContactModalOpen(true)}
               className="py-2 font-light px-5 md:px-7 rounded-full border border-black"
             >
               <h1 className="text-sm">Contact</h1>
             </motion.button>
           </div>
+          {/* Menu Button */}
           <div className="flex gap-3">
-            <h2 className="font-light">Menu</h2>
             <motion.div
               whileHover={{ scale: 1.2 }}
               whileTap={{ scale: 0.8 }}
@@ -84,12 +88,12 @@ const Navbar = () => {
             variants={sideModalVariants}
             className="fixed top-0 right-0 w-4/5 md:w-1/2 lg:w-2/5 h-full bg-black z-50"
           >
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full flex flex-col justify-between">
               <motion.div
                 onClick={toggleModal}
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.8 }}
-                className="absolute top-8 right-8 text-white cursor-pointer"
+                className="absolute top-8 right-5 md:right-10 lg:right-16 text-white cursor-pointer"
               >
                 <X size={24} />
               </motion.div>
@@ -125,11 +129,70 @@ const Navbar = () => {
                     </motion.li>
                   ))}
                 </motion.ul>
+                {/* Animated Social Icons below nav links */}
+                <motion.div
+                  initial="hidden"
+                  animate="visible"
+                  variants={{
+                    hidden: {},
+                    visible: {
+                      transition: {
+                        delayChildren: 0.7,
+                        staggerChildren: 0.12,
+                      },
+                    },
+                  }}
+                  className="flex gap-6 mt-12 justify-start items-center"
+                >
+                  <motion.a
+                    href="https://www.instagram.com/sahil_malgundkar_/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Instagram"
+                    variants={{
+                      hidden: { opacity: 0, x: 40 },
+                      visible: { opacity: 1, x: 0 },
+                    }}
+                  >
+                    <Instagram className="w-7 h-7 hover:text-pink-500 transition-colors" />
+                  </motion.a>
+                  <motion.a
+                    href="https://www.linkedin.com/in/sahil-malgundkar-208824261/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                    variants={{
+                      hidden: { opacity: 0, x: 40 },
+                      visible: { opacity: 1, x: 0 },
+                    }}
+                  >
+                    <Linkedin className="w-7 h-7 hover:text-blue-600 transition-colors" />
+                  </motion.a>
+                  <motion.a
+                    href="https://github.com/SahilMalgundkar24"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                    variants={{
+                      hidden: { opacity: 0, x: 40 },
+                      visible: { opacity: 1, x: 0 },
+                    }}
+                  >
+                    <Github className="w-7 h-7 hover:text-gray-300 transition-colors" />
+                  </motion.a>
+                </motion.div>
               </div>
+
+              {/* Social Icons at the bottom of the modal */}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+      />
     </>
   );
 };

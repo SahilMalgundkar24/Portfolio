@@ -37,7 +37,7 @@ const ImageGallery = () => {
   ];
 
   return (
-    <div className=" hidden lg:block bg-black">
+    <div className=" hidden lg:block bg-[#0d0d0d]">
       <div className="px-5 md:px-10 lg:px-16 py-7">
         <h1 className="text-3xl md:text-4xl lg:text-6xl text-white">
           Creative Showcase
@@ -48,7 +48,10 @@ const ImageGallery = () => {
           approach I bring to every project.
         </p>
       </div>
-      <div ref={ref} className="w-full min-h-[150vh] mt-7 bg-black relative">
+      <div
+        ref={ref}
+        className="w-full min-h-[150vh] mt-7 bg-[#0d0d0d] relative"
+      >
         <div className="sticky top-0 h-screen w-full flex overflow-hidden">
           {[0, 1, 2, 3].map((columnIndex) => (
             <motion.div

@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import HorizontalScroll from "@/components/HorizontalScroll";
 import ProjectHeading from "@/components/ProjectHeading";
 import Lenis from "@studio-freight/lenis";
+import Insights from "@/components/Insights";
 
 export default function Home() {
   useEffect(() => {
@@ -34,6 +35,7 @@ export default function Home() {
         <About />
         <HorizontalScroll />
         <Skills />
+        <Insights />
         <ProjectHeading />
         <ProjectSection />
         <ImageGallery />

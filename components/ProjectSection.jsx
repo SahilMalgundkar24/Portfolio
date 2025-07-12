@@ -26,15 +26,20 @@ const ProjectSection = () => {
       link: "https://youtu.be/b-pQvemBHus?si=y-lcYHj-DqQV31hH",
     },
     {
-      title: "Project Three",
-      image: "/images/ProjectOne.png",
-      description: "Third project description",
-      link: "https://project-three.com",
+      title: "VeriSure Document Verification",
+      image: "/images/ProjectThree.png",
+      description:
+        "Developed an AI-based document verification system using OCR (Pytesseract) and deep learning (CNNs), achieving 99% accuracy and reducing manual verification time by 80%. Built with Next.js, Node.js, and TensorFlow, featuring a responsive UI for real-time fraud detection and document tracking.",
+      link: "https://github.com/SahilMalgundkar24/VeriSure-Frontend",
     },
   ];
 
   return (
-    <div id="projects" ref={containerRef} className="relative w-full bg-black">
+    <div
+      id="projects"
+      ref={containerRef}
+      className="relative w-full bg-[#0d0d0d]"
+    >
       <div className="lg:sticky top-0 lg:h-screen w-full lg:w-[40%] p-5 md:p-10 lg:p-16 lg:float-left">
         <h1 className="text-3xl md:text-4xl lg:text-6xl mb-3 text-white">
           MY PROJECTS

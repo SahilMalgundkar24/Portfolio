@@ -7,13 +7,17 @@
 html {
   scrollbar-width: none;
   -ms-overflow-style: none;
+  height: 100%;
+  width: 100%;
 }
 
 body {
   font-family: "Montserrat", sans-serif;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  background-color: #e0dfdb;
+  background-color: #dddddd;
+  height: 100%;
+  width: 100%;
 }
 @font-face {
   font-family: benzin-semi;
@@ -27,6 +31,16 @@ body {
   display: none;
 }
 .no-scrollbar {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.mask {
+  position: absolute;
+  mask-image: url("/mask.svg");
+  background: #212121;
+  mask-repeat: no-repeat;
+  mask-size: 40px;
+  color: white;
+  z-index: 10;
 }

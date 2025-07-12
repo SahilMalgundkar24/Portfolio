@@ -10,14 +10,12 @@ const ProjectHeading = () => {
     offset: ["start start", "end start"],
   });
 
-  // Extended the zoom effect to happen over 60% of the scroll instead of 40%
   const scale = useTransform(scrollYProgress, [0, 0.6], [1, 25]);
 
-  // Synchronized background color change with the new zoom timing
   const backgroundColor = useTransform(
     scrollYProgress,
     [0, 0.6],
-    ["#e0dfdb", "#000000"]
+    ["#dddddd", "#0d0d0d"]
   );
 
   return (
@@ -30,7 +28,7 @@ const ProjectHeading = () => {
     >
       <motion.div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
         <motion.h1
-          className="text-3xl md:text-7xl lg:text-9xl font-bold text-center"
+          className="text-3xl md:text-7xl lg:text-9xl font-bold text-center text-[#0d0d0d]"
           style={{
             scale,
           }}
