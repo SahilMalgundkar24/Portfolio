@@ -186,7 +186,7 @@ const Hero = () => {
                 className="w-auto h-auto py-2 lg:py-4 px-5 lg:px-12 font-medium border border-black rounded-lg cursor-pointer hover:bg-black hover:text-white transition-all duration-200"
               >
                 <h1 className="uppercase text-sm lg:text-lg benzin-semi">
-                  REQUEST A WEBSITE
+                  REQUEST A WORK
                 </h1>
               </motion.div>
             </div>
@@ -296,7 +296,7 @@ const Hero = () => {
                 className="w-auto h-auto py-2 lg:py-4 px-5 lg:px-12 font-medium border border-black rounded-lg cursor-pointer hover:bg-black hover:text-white transition-all duration-200"
               >
                 <h1 className="uppercase text-sm lg:text-lg benzin-semi">
-                  REQUEST A WEBSITE
+                  REQUEST A WORK
                 </h1>
               </motion.div>
             </div>
