@@ -1,6 +1,9 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
+import ContactModal from "./ContactModal";
 
 const Contact = () => {
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   return (
     <>
       <div className="px-5 md:px-10 lg:px-16 bg-[#0d0d0d] pt-3 lg:pt-28 pb-7">
@@ -8,12 +11,20 @@ const Contact = () => {
           Let's work together
         </h1>
         <div className="w-full p-2 flex justify-center">
-          <div className="h-auto px-5 lg:px-9 py-3 lg:py-5 text-xs md:text-base bg-[#A8A8A8] rounded-full">
-            <h1>sahilmalgundkar321@gmail.com</h1>
+          <div
+            onClick={() => setIsContactModalOpen(true)}
+            className="h-auto px-5 lg:px-9 py-3 lg:py-5 text-xs md:text-base bg-[#A8A8A8] hover:bg-[#919191] rounded-full cursor-pointer "
+          >
+            <h1 className="font-semibold">Drop me a Hi!</h1>
           </div>
         </div>
         <div className="bg-[#B5B5B5] mt-9 opacity-35 w-full h-[1px]"></div>
       </div>
+
+      <ContactModal
+        isOpen={isContactModalOpen}
+        onClose={() => setIsContactModalOpen(false)}
+      />
     </>
   );
 };

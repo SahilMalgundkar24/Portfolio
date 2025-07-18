@@ -1,5 +1,5 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import Toast from "./Toast";
@@ -15,41 +15,23 @@ const ContactModal = ({ isOpen, onClose }) => {
   });
   const [showToast, setShowToast] = useState(false);
   const [loading, setLoading] = useState(false);
+  const scrollPosition = useRef(0);
 
   useEffect(() => {
     if (isOpen) {
       const scrollY = window.scrollY;
-
-      document.body.style.overflow = "hidden";
       document.body.style.position = "fixed";
       document.body.style.top = `-${scrollY}px`;
       document.body.style.width = "100%";
-
-      // Also prevent scrolling on html element
-      document.documentElement.style.overflow = "hidden";
-    } else {
-      // Restore scrolling
-      const scrollY = document.body.style.top;
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.width = "";
-      document.documentElement.style.overflow = "";
-
-      // Restore scroll position
-      if (scrollY) {
-        window.scrollTo(0, parseInt(scrollY || "0") * -1);
-      }
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+        document.body.style.overflow = "";
+        window.scrollTo(0, scrollY);
+      };
     }
-
-    // Cleanup function to restore scroll when component unmounts
-    return () => {
-      document.body.style.overflow = "";
-      document.body.style.position = "";
-      document.body.style.top = "";
-      document.body.style.width = "";
-      document.documentElement.style.overflow = "";
-    };
   }, [isOpen]);
 
   // Handle escape key to close modal
@@ -83,7 +65,7 @@ const ContactModal = ({ isOpen, onClose }) => {
     try {
       await fetch(GOOGLE_SCRIPT_URL, {
         method: "POST",
-        mode: "no-cors", // Required for public Google Apps Script
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
