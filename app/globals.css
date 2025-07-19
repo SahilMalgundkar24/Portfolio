@@ -16,6 +16,8 @@ body {
   scrollbar-width: none;
   -ms-overflow-style: none;
   background-color: #dddddd;
+  background-image: radial-gradient(circle, #bcbcbcbc 1.5px, transparent 1.5px);
+  background-size: 24px 24px;
   height: 100%;
   width: 100%;
 }
