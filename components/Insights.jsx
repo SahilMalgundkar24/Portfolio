@@ -24,7 +24,7 @@ const cards = [
   },
   {
     bg: "bg-white/80",
-    title: "10+ Production Projects",
+    title: "7+ Production Projects",
     description:
       "Built and deployed more than 10 real-world apps, from e-commerce to AI tools, ensuring production readiness and UI excellence.",
     image: "/images/project.png",
@@ -83,13 +83,11 @@ const Insights = () => {
 
   return (
     <>
-      {/* Desktop Insights (hidden on mobile) */}
       <div className="bg-black hidden md:block">
-        {/* Insights Section - takes multiple screen heights for scroll control */}
         <div
           ref={sectionRef}
           className="w-full relative"
-          style={{ height: "170vh" }} // Tall section for scroll control
+          style={{ height: "170vh" }}
         >
           <div
             ref={containerRef}
@@ -97,7 +95,6 @@ const Insights = () => {
               isAnimating ? "fixed top-0 left-0" : ""
             }`}
           >
-            {/* Cards container - initially hidden */}
             <div className="w-full flex gap-7 pt-8 px-8 overflow-hidden">
               {cards.map((card, index) => (
                 <div

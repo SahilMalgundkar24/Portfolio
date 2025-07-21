@@ -99,7 +99,7 @@ const Navbar = () => {
               onClick={toggleModal}
               className="cursor-pointer"
             >
-              <Menu strokeWidth={0.5} />
+              <Menu strokeWidth={1} />
             </motion.div>
           </div>
         </div>

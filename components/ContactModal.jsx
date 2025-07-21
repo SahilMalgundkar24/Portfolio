@@ -126,7 +126,7 @@ const ContactModal = ({ isOpen, onClose }) => {
             animate="visible"
             exit="exit"
             variants={backdropVariants}
-            className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 overflow-y-auto"
+            className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 overflow-y-auto no-scrollbar"
             onClick={onClose}
           >
             <motion.div
@@ -134,7 +134,7 @@ const ContactModal = ({ isOpen, onClose }) => {
               animate="visible"
               exit="exit"
               variants={modalVariants}
-              className="w-11/12 max-w-md bg-white rounded-lg shadow-2xl"
+              className="w-11/12 max-w-md bg-white rounded-lg shadow-2xl no-scrollbar"
               style={{ maxHeight: "90vh", overflowY: "auto" }}
               onClick={(e) => e.stopPropagation()}
             >
