@@ -25,7 +25,7 @@ const About = () => {
             className="w-full lg:mt-0 mt-5 px-16 lg:px-0 lg:w-1/2 h-full items-center"
           >
             <img
-              src="/images/AboutMe.png"
+              src="/images/myself.png"
               alt="AboutMeImage"
               className="object-contain"
             />
