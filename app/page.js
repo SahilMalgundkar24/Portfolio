@@ -3,15 +3,14 @@ import React, { useEffect } from "react";
 import About from "@/components/About";
 import Contact from "@/components/Contact";
 import Hero from "@/components/Hero";
-import ImageGallery from "@/components/ImageGallery";
 import Navbar from "@/components/Navbar";
 import ProjectSection from "@/components/ProjectSection";
 import Skills from "@/components/Skills";
 import Footer from "@/components/Footer";
-import HorizontalScroll from "@/components/HorizontalScroll";
 import ProjectHeading from "@/components/ProjectHeading";
 import Lenis from "@studio-freight/lenis";
 import Insights from "@/components/Insights";
+import Experience from "@/components/Experience";
 
 export default function Home() {
   useEffect(() => {
@@ -33,12 +32,11 @@ export default function Home() {
         <Navbar />
         <Hero />
         <About />
-        <HorizontalScroll />
         <Skills />
-        <Insights />
+        <Experience />
         <ProjectHeading />
         <ProjectSection />
-        <ImageGallery />
+        <Insights />
         <Contact />
         <Footer />
       </div>

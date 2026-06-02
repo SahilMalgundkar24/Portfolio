@@ -37,22 +37,23 @@ const About = () => {
             viewport={{ once: false }}
             className="ml-0 lg:ml-12 lg:text-base text-sm text-justify"
           >
-            I'm Sahil Malgundkar, a Computer Engineering student passionate
-            about blending creativity with technical expertise to build
-            impactful digital solutions. From building interactive interfaces to
-            developing robust applications, I emphasize user-centered design and
-            functionality to create seamless digital experiences.<br></br>
+            I'm Sahil Malgundkar, an AI Engineer and Full-Stack Developer with
+            1.5+ years of experience building production-grade AI systems and
+            web/mobile applications. I've delivered 10+ production-ready
+            applications for clients and developed AI solutions across LLMs,
+            NLP, and RAG architectures.<br></br>
             <br></br>
-            In addition to my technical pursuits, I hold the position of
-            Marketing Secretary at the Computer Engineering Students' Society,
-            where I've honed my leadership and collaboration skills. This role
-            has allowed me to connect with industry professionals, organize tech
-            events, and create valuable opportunities for my peers. <br></br>
-            <br></br>I constantly seek new challenges and learning
-            opportunities, integrating emerging technologies like blockchain and
-            machine learning into my projects. My goal is to innovate and drive
-            positive change, using technology to solve real-world problems and
-            make a meaningful impact in the tech community.
+            I'm a two-time national-level hackathon winner, including 1st Place
+            at Smart India Hackathon 2024 — India's largest hackathon with
+            50,000+ teams nationwide. My work spans from indexing GitHub repos
+            with RAG pipelines to building IPL-scale web platforms handling
+            600,000+ requests/hour.<br></br>
+            <br></br>
+            Currently pursuing my B.E. in Computer Engineering at MCT's Rajiv
+            Gandhi Institute of Technology, I also serve as President of the
+            Computer Engineering Student's Society, leading a 90+ member team
+            to organize 10+ technical events and a national-level hackathon. My
+            focus is building AI-driven products that create measurable impact.
           </motion.div>
         </div>
       </div>

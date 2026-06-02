@@ -6,9 +6,9 @@ import Navbar from "./Navbar";
 import ContactModal from "./ContactModal";
 
 const Hero = () => {
-  const word1 = "Design.";
-  const word2 = "Develop.";
-  const word3 = "Deliver.";
+  const word1 = "Prompt.";
+  const word2 = "Build.";
+  const word3 = "Deploy.";
   const word4 = "Impact.";
 
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -41,7 +41,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <div className="relative">
+    <div id="home" className="relative">
       <motion.div
         ref={ref}
         className="py-10 w-full h-auto px-16 relative mask"
@@ -109,8 +109,8 @@ const Hero = () => {
             className="w-full lg:w-auto h-auto py-2 px-3 md:px-10 font-medium border border-black rounded-lg"
           >
             <h1 className="uppercase text-sm text-center md:text-lg">
-              I build full-stack web apps that merge creativity with
-              functionality.
+              AI Engineer & Full Stack Developer — building production-grade AI
+              systems and scalable web applications.
             </h1>
           </motion.div>
         </div>
@@ -235,8 +235,8 @@ const Hero = () => {
             className="w-full lg:w-auto h-auto py-2 px-3 md:px-10 font-medium border border-black rounded-lg"
           >
             <h1 className="uppercase text-sm text-center md:text-lg">
-              I build full-stack web apps that merge creativity with
-              functionality.
+              AI Engineer & Full Stack Developer — building production-grade AI
+              systems and scalable web applications.
             </h1>
           </motion.div>
         </div>

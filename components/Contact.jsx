@@ -6,7 +6,7 @@ const Contact = () => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   return (
     <>
-      <div className="px-5 md:px-10 lg:px-16 bg-[#0d0d0d] pt-3 lg:pt-28 pb-7">
+      <div className="relative z-30 px-5 md:px-10 lg:px-16 bg-[#0d0d0d] pt-3 lg:pt-12 pb-7">
         <h1 className="text-3xl md:text-4xl lg:text-6xl py-1 font-bold text-transparent text-center bg-clip-text bg-gradient-to-b from-[#1B1B1B] to-[#818181]">
           Let's work together
         </h1>

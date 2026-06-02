@@ -54,18 +54,18 @@ const Skills = () => {
   const skillsData = [
     {
       number: "O1",
-      title: "Frontend Development",
-      subtitle: "ReactJS/NextJS",
+      title: "AI / ML",
+      subtitle: "LLMs, LangChain, RAG, PyTorch, TensorFlow",
     },
     {
       number: "O2",
-      title: "Backend Development",
-      subtitle: "NodeJS/ExpressJs/MongoDB",
+      title: "Full-Stack Development",
+      subtitle: "Next.js, React, Node.js, FastAPI, Django",
     },
     {
       number: "O3",
-      title: "Mobile App Development",
-      subtitle: "React Native",
+      title: "Cloud & Databases",
+      subtitle: "AWS, MongoDB, PostgreSQL, Pinecone, Docker",
     },
   ];
 
@@ -91,8 +91,8 @@ const Skills = () => {
 
       <SkillCard
         number="O4"
-        title="UI/UX Developer"
-        subtitle="Figma"
+        title="AI Tools & Frameworks"
+        subtitle="OpenAI, Anthropic, Ollama, LangGraph, Hugging Face, Vercel AI SDK"
         isFullWidth={true}
       />
     </div>

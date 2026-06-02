@@ -1,10 +1,10 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
+import { createPortal } from "react-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import Toast from "./Toast";
 
-// Add your Google Apps Script Web App URL here
 const GOOGLE_SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
 
 const ContactModal = ({ isOpen, onClose }) => {
@@ -15,26 +15,36 @@ const ContactModal = ({ isOpen, onClose }) => {
   });
   const [showToast, setShowToast] = useState(false);
   const [loading, setLoading] = useState(false);
-  const scrollPosition = useRef(0);
+  const [mounted, setMounted] = useState(false);
+  const scrollYRef = useRef(0);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
-      const scrollY = window.scrollY;
+      scrollYRef.current = window.scrollY;
       document.body.style.position = "fixed";
-      document.body.style.top = `-${scrollY}px`;
+      document.body.style.top = `-${scrollYRef.current}px`;
       document.body.style.width = "100%";
       document.body.style.overflow = "hidden";
-      return () => {
-        document.body.style.position = "";
-        document.body.style.top = "";
-        document.body.style.width = "";
-        document.body.style.overflow = "";
-        window.scrollTo(0, scrollY);
-      };
+    } else {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+      window.scrollTo(0, scrollYRef.current);
     }
+
+    return () => {
+      document.body.style.position = "";
+      document.body.style.top = "";
+      document.body.style.width = "";
+      document.body.style.overflow = "";
+    };
   }, [isOpen]);
 
-  // Handle escape key to close modal
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === "Escape" && isOpen) {
@@ -117,7 +127,9 @@ const ContactModal = ({ isOpen, onClose }) => {
     exit: { opacity: 0 },
   };
 
-  return (
+  if (!mounted) return null;
+
+  return createPortal(
     <>
       <AnimatePresence>
         {isOpen && (
@@ -126,7 +138,7 @@ const ContactModal = ({ isOpen, onClose }) => {
             animate="visible"
             exit="exit"
             variants={backdropVariants}
-            className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 overflow-y-auto no-scrollbar"
+            className="fixed inset-0 bg-black/50 z-[300] flex items-center justify-center p-4 overflow-y-auto no-scrollbar"
             onClick={onClose}
           >
             <motion.div
@@ -154,8 +166,10 @@ const ContactModal = ({ isOpen, onClose }) => {
                   transition={{ delay: 0.2 }}
                   className="text-center mb-8"
                 >
-                  <h2 className="text-3xl font-bold mb-2">Let's Connect</h2>
-                  <p className="text-gray-600">I'd love to hear from you!</p>
+                  <h2 className="text-3xl font-bold mb-2">Let&apos;s Connect</h2>
+                  <p className="text-gray-600">
+                    sahilmalgundkar321@gmail.com · +91 96070 55655
+                  </p>
                 </motion.div>
 
                 <motion.form
@@ -250,7 +264,8 @@ const ContactModal = ({ isOpen, onClose }) => {
         message="Message sent successfully! I'll get back to you soon."
         onClose={() => setShowToast(false)}
       />
-    </>
+    </>,
+    document.body
   );
 };
 

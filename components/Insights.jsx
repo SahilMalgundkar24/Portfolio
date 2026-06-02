@@ -3,31 +3,31 @@ import React, { useState, useEffect, useRef } from "react";
 const cards = [
   {
     bg: "bg-white/80",
-    title: "SIH 2024 Winner",
+    title: "SIH 2024 — 1st Place",
     description:
-      "Built a real-world solution for a national problem at the Smart India Hackathon, winning 1st place at the grand finale.",
+      "Won India's largest hackathon (50,000+ teams nationwide) at the Smart India Hackathon 2024 grand finale with a production-ready AI solution.",
     image: "/images/sih.png",
   },
   {
     bg: "bg-white/80",
-    title: "Hack4Change - 2nd Runner Up",
+    title: "Hack4Change — 2nd Runner Up",
     description:
-      "Secured 3rd place in a national hackathon co-hosted by Google and Charcha which focused on building for social impact",
+      "Secured 2nd Runner Up in a national hackathon co-hosted by Google and Charcha among 6,000+ teams nationwide.",
     image: "/images/h4c.png",
   },
   {
     bg: "bg-white/80",
-    title: "2+ Years Freelancing",
+    title: "10+ Production Apps",
     description:
-      "Worked with startups and clients across domains delivering full-stack solutions with performance and scalability in mind.",
-    image: "/images/freelance.png",
+      "Delivered 10+ production-ready applications for clients from IPL-scale web platforms to AI-powered document verification systems.",
+    image: "/images/project.png",
   },
   {
     bg: "bg-white/80",
-    title: "7+ Production Projects",
+    title: "Published Researcher",
     description:
-      "Built and deployed more than 10 real-world apps, from e-commerce to AI tools, ensuring production readiness and UI excellence.",
-    image: "/images/project.png",
+      "Co-authored BrainSync — an AI-powered collaborative learning platform, published in IJNRD, 2026.",
+    image: "/images/freelance.png",
   },
 ];
 
@@ -83,7 +83,7 @@ const Insights = () => {
 
   return (
     <>
-      <div className="bg-black hidden md:block">
+      <div className="bg-[#0d0d0d] hidden md:block">
         <div
           ref={sectionRef}
           className="w-full relative"
@@ -92,7 +92,7 @@ const Insights = () => {
           <div
             ref={containerRef}
             className={`w-full h-screen flex flex-col gap-32 ${
-              isAnimating ? "fixed top-0 left-0" : ""
+              isAnimating ? "fixed top-0 left-0 z-10" : ""
             }`}
           >
             <div className="w-full flex gap-7 pt-8 px-8 overflow-hidden">
@@ -143,7 +143,7 @@ const Insights = () => {
       </div>
 
       {/* Mobile Insights (only on mobile) */}
-      <div className="bg-black md:hidden w-full py-12">
+      <div className="bg-[#0d0d0d] md:hidden w-full py-12">
         <h2 className="text-4xl font-bold text-white px-6 mb-8">Insights</h2>
         <div className="flex flex-col gap-8 px-4">
           {cards.map((card, idx) => (

@@ -70,6 +70,7 @@ const Navbar = () => {
     { title: "Home", id: "home" },
     { title: "About", id: "about" },
     { title: "Skills", id: "skills" },
+    { title: "Experience", id: "experience" },
     { title: "Projects", id: "projects" },
   ];
 
@@ -78,6 +79,9 @@ const Navbar = () => {
       <nav className="w-full h-auto px-5 md:px-10 lg:px-16 py-5 flex justify-between items-center">
         <div>
           <h1 className="text-xl">Sahil Malgundkar</h1>
+          <p className="text-xs text-[#9D9D9D] hidden md:block">
+            AI Engineer & Full Stack Developer
+          </p>
         </div>
         <div className="flex gap-3 md:gap-10 items-center">
           {/* Contact Button */}
