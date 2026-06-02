@@ -65,7 +65,6 @@ export const projects = [
     link: "https://github.com/Tejas-Gawde/Nomadica",
     featured: false,
   },
-  
   {
     title: "Sunrisers Hyderabad",
     image: "/images/sunrisers.png",
