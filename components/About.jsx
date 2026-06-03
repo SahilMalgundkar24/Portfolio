@@ -38,7 +38,7 @@ const About = () => {
             className="ml-0 lg:ml-12 lg:text-base text-sm text-justify"
           >
             I'm Sahil Malgundkar, an AI Engineer and Full-Stack Developer with
-            1.5+ years of experience building production-grade AI systems and
+            2+ years of experience building production-grade AI systems and
             web/mobile applications. I've delivered 10+ production-ready
             applications for clients and developed AI solutions across LLMs,
             NLP, and RAG architectures.<br></br>
