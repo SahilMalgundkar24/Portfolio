@@ -5,7 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { X } from "lucide-react";
 import Toast from "./Toast";
 
-const GOOGLE_SCRIPT_URL = process.env.NEXT_PUBLIC_GOOGLE_SCRIPT_URL;
+const CONTACT_EMAIL = "sahilmalgundkar321@gmail.com";
+
+const successToastMessage =
+  "Message sent successfully! I'll get back to you soon.";
+
+const errorToastMessage = `Couldn't send your message. Please try again or email ${CONTACT_EMAIL}.`;
 
 const ContactModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
@@ -13,14 +18,26 @@ const ContactModal = ({ isOpen, onClose }) => {
     email: "",
     message: "",
   });
-  const [showToast, setShowToast] = useState(false);
+  const [toast, setToast] = useState({ visible: false, message: "", variant: "success" });
   const [loading, setLoading] = useState(false);
   const [mounted, setMounted] = useState(false);
   const scrollYRef = useRef(0);
+  const toastTimerRef = useRef(null);
 
   useEffect(() => {
     setMounted(true);
+    return () => {
+      if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+    };
   }, []);
+
+  const showToast = (message, variant = "success") => {
+    if (toastTimerRef.current) clearTimeout(toastTimerRef.current);
+    setToast({ visible: true, message, variant });
+    toastTimerRef.current = setTimeout(() => {
+      setToast((prev) => ({ ...prev, visible: false }));
+    }, 5000);
+  };
 
   useEffect(() => {
     if (isOpen) {
@@ -72,23 +89,31 @@ const ContactModal = ({ isOpen, onClose }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     try {
-      await fetch(GOOGLE_SCRIPT_URL, {
+      const res = await fetch("/api/contact", {
         method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
+
+      const data = await res.json().catch(() => ({}));
+
+      if (!res.ok || data.result !== "success") {
+        onClose();
+        showToast(errorToastMessage, "error");
+        return;
+      }
+
       onClose();
       setFormData({ name: "", email: "", message: "" });
-      setShowToast(true);
-      setTimeout(() => {
-        setShowToast(false);
-      }, 3000);
+      showToast(successToastMessage, "success");
     } catch (error) {
-      alert("There was an error sending your message. Please try again.");
+      if (process.env.NODE_ENV === "development") {
+        console.error("Contact form submit failed:", error);
+      }
+      onClose();
+      showToast(errorToastMessage, "error");
     } finally {
       setLoading(false);
     }
@@ -168,7 +193,7 @@ const ContactModal = ({ isOpen, onClose }) => {
                 >
                   <h2 className="text-3xl font-bold mb-2">Let&apos;s Connect</h2>
                   <p className="text-gray-600">
-                    sahilmalgundkar321@gmail.com · +91 96070 55655
+                    {CONTACT_EMAIL} · +91 96070 55655
                   </p>
                 </motion.div>
 
@@ -260,9 +285,10 @@ const ContactModal = ({ isOpen, onClose }) => {
       </AnimatePresence>
 
       <Toast
-        isVisible={showToast}
-        message="Message sent successfully! I'll get back to you soon."
-        onClose={() => setShowToast(false)}
+        isVisible={toast.visible}
+        message={toast.message}
+        variant={toast.variant}
+        onClose={() => setToast((prev) => ({ ...prev, visible: false }))}
       />
     </>,
     document.body

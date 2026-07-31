@@ -1,9 +1,11 @@
 "use client";
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, AlertCircle } from "lucide-react";
 
-const Toast = ({ isVisible, message, onClose }) => {
+const Toast = ({ isVisible, message, onClose, variant = "success" }) => {
+  const isError = variant === "error";
+
   const toastVariants = {
     hidden: {
       opacity: 0,
@@ -39,13 +41,20 @@ const Toast = ({ isVisible, message, onClose }) => {
           animate="visible"
           exit="exit"
           variants={toastVariants}
-          className="fixed bottom-4 right-4 z-[60] bg-gray-800 text-white px-6 py-4 rounded-lg shadow-lg flex items-center gap-3"
+          className={`fixed bottom-4 right-4 z-[350] max-w-sm px-6 py-4 rounded-lg shadow-lg flex items-start gap-3 ${
+            isError ? "bg-red-900 text-white" : "bg-gray-800 text-white"
+          }`}
         >
-          <CheckCircle size={20} />
-          <span className="font-medium">{message}</span>
+          {isError ? (
+            <AlertCircle size={20} className="shrink-0 mt-0.5" />
+          ) : (
+            <CheckCircle size={20} className="shrink-0 mt-0.5" />
+          )}
+          <span className="font-medium text-sm leading-snug">{message}</span>
           <button
             onClick={onClose}
-            className="ml-2 text-white hover:text-gray-200 transition-colors"
+            className="ml-auto text-white/80 hover:text-white transition-colors shrink-0"
+            aria-label="Dismiss"
           >
             ×
           </button>
