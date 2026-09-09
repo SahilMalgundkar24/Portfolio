@@ -12,7 +12,7 @@ const montserrat = Montserrat({
 export const metadata = {
   title: "Sahil Malgundkar | AI Engineer & Full Stack Developer",
   description:
-    "AI Engineer and Full-Stack Developer building production-grade AI systems, RAG pipelines, and scalable web applications. 1.5+ years experience, SIH 2024 Winner.",
+    "AI Engineer and Full-Stack Developer building production-grade AI systems, RAG pipelines, and scalable web applications. 2+ years experience, SIH 2024 Winner.",
 };
 
 export default function RootLayout({ children }) {
