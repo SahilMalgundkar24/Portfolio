@@ -3,30 +3,30 @@ import React, { useState, useEffect, useRef } from "react";
 const cards = [
   {
     bg: "bg-white/80",
-    title: "SIH 2024 — 1st Place",
+    title: "SIH 2024 : 1st Place",
     description:
       "Won India's largest hackathon (50,000+ teams nationwide) at the Smart India Hackathon 2024 grand finale with a production-ready AI solution.",
     image: "/images/sih.png",
   },
   {
     bg: "bg-white/80",
-    title: "Hack4Change — 2nd Runner Up",
+    title: "Hack4Change : 2nd Runner Up",
     description:
       "Secured 2nd Runner Up in a national hackathon co-hosted by Google and Charcha among 6,000+ teams nationwide.",
     image: "/images/h4c.png",
   },
   {
     bg: "bg-white/80",
-    title: "10+ Production Apps",
+    title: "15+ Production Apps",
     description:
-      "Delivered 10+ production-ready applications for clients from IPL-scale web platforms to AI-powered document verification systems.",
+      "Delivered 15+ production-ready applications for clients from IPL-scale web platforms to AI-powered document verification systems.",
     image: "/images/project.png",
   },
   {
     bg: "bg-white/80",
     title: "Published Researcher",
     description:
-      "Co-authored BrainSync — an AI-powered collaborative learning platform, published in IJNRD, 2026.",
+      "Co-authored BrainSync, an AI-powered collaborative learning platform, published in IJNRD, 2026.",
     image: "/images/freelance.png",
   },
 ];

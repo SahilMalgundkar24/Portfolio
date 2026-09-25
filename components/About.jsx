@@ -39,21 +39,16 @@ const About = () => {
           >
             I'm Sahil Malgundkar, an AI Engineer and Full-Stack Developer with
             2+ years of experience building production-grade AI systems and
-            web/mobile applications. I've delivered 10+ production-ready
+            web/mobile applications. I've delivered 15+ production-ready
             applications for clients and developed AI solutions across LLMs,
             NLP, and RAG architectures.<br></br>
             <br></br>
             I'm a two-time national-level hackathon winner, including 1st Place
-            at Smart India Hackathon 2024 — India's largest hackathon with
-            50,000+ teams nationwide. My work spans from indexing GitHub repos
-            with RAG pipelines to building IPL-scale web platforms handling
-            600,000+ requests/hour.<br></br>
+            at Smart India Hackathon 2024, India's largest hackathon with
+            50,000+ teams nationwide. My work spans from building AI-powered systems and intelligent applications to developing scalable, production-ready web platforms.<br></br>
             <br></br>
-            Currently pursuing my B.E. in Computer Engineering at MCT's Rajiv
-            Gandhi Institute of Technology, I also serve as President of the
-            Computer Engineering Student's Society, leading a 90+ member team
-            to organize 10+ technical events and a national-level hackathon. My
-            focus is building AI-driven products that create measurable impact.
+            I completed my B.E. in Computer Engineering from MCT's Rajiv Gandhi Institute of Technology, Mumbai University, and previously served as President of the Computer Engineering Student's Society, leading a 90+ member team to organize 10+ technical events and a national-level hackathon. My focus is on building AI-driven products that create measurable impact.
+
           </motion.div>
         </div>
       </div>

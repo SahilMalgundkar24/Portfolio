@@ -5,6 +5,18 @@ import Link from "next/link";
 
 const experiences = [
   {
+    company: "Noah Labs",
+    role: "Founding Engineer",
+    period: "June 2026 — August 2026",
+    type: "Remote",
+    link: "https://noahlabs.ai/",
+    highlights: [
+      "Built Python-based data platform features for dataset profiling, privacy enforcement, synthetic data generation, and artifact versioning.",
+      "Automated CI/CD across Windows and Linux and debugged authentication, multi-service, and deployment issues.",
+      "Led pre-release security and compliance testing on GCP, identifying, fixing, and validating critical issues.",
+    ],
+  },
+  {
     company: "Sunrisers Hyderabad",
     role: "Full-Stack Developer",
     period: "Feb 2026 — Apr 2026",
@@ -16,18 +28,7 @@ const experiences = [
       "Optimised Core Web Vitals through code splitting, image optimisation, and lazy loading.",
     ],
   },
-  {
-    company: "Epic Bite",
-    role: "Full-Stack Developer",
-    period: "Sep 2025 — Nov 2025",
-    type: "Contract",
-    link: "http://myepicbite.com/",
-    highlights: [
-      "Architected a complete content-driven platform (web + mobile) using Next.js, React Native, and Supabase.",
-      "Designed scalable content management workflows, reducing publishing time by 40%.",
-      "Improved audience engagement by 30% through responsive UI redesign and performance optimisations.",
-    ],
-  },
+  
 ];
 
 const ExperienceCard = ({ exp, index }) => (

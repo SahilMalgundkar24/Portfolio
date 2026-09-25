@@ -99,7 +99,7 @@ const ProjectSection = () => {
           </div>
         </div>
         <p className="text-sm md:text-base text-gray-400 max-w-2xl">
-          AI-powered systems and full-stack applications — from RAG pipelines
+          AI-powered systems and full-stack applications including RAG pipelines,
           and document verification to blockchain-backed mobile platforms.
         </p>
       </div>
